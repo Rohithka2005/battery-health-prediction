@@ -11,7 +11,7 @@ A Python machine-learning project that estimates battery Remaining Useful Life (
 - Includes a **cycle-only baseline** to test whether other measurements add predictive value.
 - Evaluates generalization by leaving one battery ID out at a time.
 - Reports MAE, MSE, and R².
-- Includes diagnostic plots and CSV evaluation outputs.
+- Saves diagnostic plots and CSV evaluation outputs when run.
 - Includes an interactive console demonstration.
 
 ## Repository structure
@@ -28,15 +28,15 @@ battery-health-prediction/
 │   ├── model_evaluation.py
 │   └── protection_system.py
 ├── results/
-│   ├── actual_vs_predicted.png
-│   ├── feature_analysis.png
-│   ├── model_comparison.png
-│   ├── residual_analysis.png
-│   ├── unseen_battery_mae.png
-│   └── evaluation CSV files
+│   ├── holdout_predictions.csv
+│   ├── leave_one_battery_out_results.csv
+│   ├── linear_model_feature_analysis.csv
+│   └── random_split_model_comparison.csv
 └── docs/
     └── ACADEMIC_MATERIALS.md
 ```
+
+The scripts generate diagnostic PNG plots and the detailed row-level leave-one-battery-out predictions when run with the authorized dataset. Those generated artifacts are not committed in the current source tree.
 
 ## Dataset
 
@@ -118,7 +118,7 @@ These are illustrative, project-defined thresholds, not certified limits. Real b
 
 Within the supplied data, RUL is strongly related to cycle number for each battery. The cycle-only baseline is therefore important. A strong random-split score alone does not establish generalization to a previously unseen battery.
 
-Linear Regression coefficient magnitudes depend on feature scales. The feature-analysis plot uses absolute standardized linear effects as a descriptive diagnostic, not as proof of causal or electrochemical importance.
+Linear Regression coefficient magnitudes depend on feature scales. The feature-analysis CSV uses absolute standardized linear effects as a descriptive diagnostic, not as proof of causal or electrochemical importance.
 
 ## Academic materials
 
