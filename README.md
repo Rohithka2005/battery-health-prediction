@@ -28,15 +28,41 @@ battery-health-prediction/
 │   ├── model_evaluation.py
 │   └── protection_system.py
 ├── results/
-│   ├── holdout_predictions.csv
-│   ├── leave_one_battery_out_results.csv
-│   ├── linear_model_feature_analysis.csv
-│   └── random_split_model_comparison.csv
+│   ├── actual_vs_predicted.svg
+│   ├── feature_analysis.svg
+│   ├── model_comparison.svg
+│   ├── residual_analysis.svg
+│   ├── unseen_battery_mae.svg
+│   └── evaluation CSV files
 └── docs/
     └── ACADEMIC_MATERIALS.md
 ```
 
-The scripts generate diagnostic PNG plots and the detailed row-level leave-one-battery-out predictions when run with the authorized dataset. Those generated artifacts are not committed in the current source tree.
+The repository includes SVG chart previews for the model comparison, feature analysis, prediction fit, residuals, and held-out-battery MAE. The Python scripts also generate full-resolution PNG plots and detailed row-level leave-one-battery-out predictions when run with the authorized dataset.
+
+## Output charts
+
+**Actual vs. predicted RUL**
+
+![Actual vs. predicted remaining useful life](results/actual_vs_predicted.svg)
+
+**Model comparison**
+
+![Random-split model R-squared comparison](results/model_comparison.svg)
+
+**Feature analysis**
+
+![Absolute standardized linear effects](results/feature_analysis.svg)
+
+**Residual analysis**
+
+![Prediction residual analysis](results/residual_analysis.svg)
+
+**Unseen-battery evaluation**
+
+![MAE by held-out battery](results/unseen_battery_mae.svg)
+
+The SVG charts are repository-friendly previews derived from the recorded evaluation metrics and a sample of the saved holdout predictions. They are descriptive model diagnostics, not evidence of certified battery safety.
 
 ## Dataset
 
